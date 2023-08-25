@@ -1,0 +1,27 @@
+# 仮想環境
+venv/
+.venv/
+
+# キャッシュ or コンパイルファイル
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ログ
+logs/
+*.log
+*.tmp
+
+# ローカル設定
+instance/
+config.py
+
+/venv/
+/env/
+.env
+
+.vscode/
+.idea/
+.vscode/
+
