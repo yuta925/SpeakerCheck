@@ -14,6 +14,38 @@ function App() {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/practice">Practice</Link></li>
+        </ul>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<Practice />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+
+{/*function App() {
+  return (
+    <Router>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+      </nav>
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
+    <BrowserRouter>
+      <div className="App">
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/practice">Practice</Link></li>
           <li><Link to="/create">Create</Link></li>
           <li><Link to="/select">Select</Link></li>
         </ul>
@@ -43,11 +75,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-      </Routes> 
+      </Routes>
     </Router>
   );
 }
-
-*/}
 
 export default App;
