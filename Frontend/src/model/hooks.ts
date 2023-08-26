@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
+interface ExtractedData {
+  [key: string]: number;
+}
+
 type Hooks = {
   startRecording: () => void;
   stopRecording: () => void;
@@ -55,17 +59,23 @@ export const useHooks = (): Hooks => {
 
   const transeText = (text: string) => {
     const extractedData: Record<string, string> = {};
+    const results: ExtractedData[] = [];
     console.log("response text: ", text);
     const regex: RegExp = /<([^<>]+)>/g;
     let match;
 
     while ((match = regex.exec(text)) !== null) {
-      const key: string = match[1];
-      const value: string = key.trim();
-      extractedData[key] = value;
+      const keyValue = match[1].split(":"); // キーと値を分割
+      if (keyValue.length === 2) {
+        const key = keyValue[0].trim();
+        const value = parseFloat(keyValue[1].trim()); // 数値に変換
+        const obj: ExtractedData = {};
+        obj[key] = value;
+        results.push(obj);
+      }
     }
 
-    console.log("extractedData: ", extractedData);
+    console.log("results: ", results);
   };
 
   useEffect(() => {
