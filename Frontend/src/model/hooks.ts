@@ -54,7 +54,7 @@ export const useHooks = (): Hooks => {
   useEffect(() => {
     const uploadAudio = async () => {
       if (!audioFile) return;
-      const endPoint = "https://api.openai.com/v1/audio/translations";
+      const endPoint = "https://api.openai.com/v1/audio/transcriptions";
 
       const formData = new FormData();
       console.log("フォーマット");
@@ -64,7 +64,7 @@ export const useHooks = (): Hooks => {
       // modelを指定
       formData.append("model", "whisper-1");
       // languageを指定
-      formData.append("language", "en");
+      formData.append("language", "ja");
       // プロンプトを指定
       formData.append("prompt", "今日の天気について話してください。");
 
