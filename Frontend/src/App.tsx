@@ -11,13 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/practice">Practice</Link></li>
-          <li><Link to="/create">Create</Link></li>
-          <li><Link to="/select">Select</Link></li>
-        </ul>
-
+        
+      <p><Link to="/">Home</Link></p>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/practice" element={<Practice />} />
@@ -28,26 +24,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
-
-{/*function App() {
-  return (
-    <Router>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
-
-    <Routes>
-      <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes> 
-    </Router>
-  );
-}
-
-*/}
 
 export default App;
