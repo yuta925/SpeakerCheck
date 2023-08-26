@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Practice from "./pages/practice";
 import Create from "./pages/create";
 import Select from "./pages/select";
+import CharComponent from "./components/Panel";
 
 function App() {
   return (
