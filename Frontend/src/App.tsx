@@ -14,11 +14,15 @@ function App() {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/practice">Practice</Link></li>
+          <li><Link to="/create">Create</Link></li>
+          <li><Link to="/select">Select</Link></li>
         </ul>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Practice />} />
+          <Route path="/practice" element={<Practice />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/select" element={<Select />} />
         </Routes>
       </div>
     </BrowserRouter>
