@@ -1,14 +1,18 @@
 import React from 'react';
 import ButtonComponent from '../components/Button';
 import { Link } from 'react-router-dom';
+import { Text, Space } from '@mantine/core';
 
 
 function Home() {
   return (
     <>
-      <h1>ユースピカ（仮）</h1>
+      <p style={{ fontSize: "80px" }}>ユースピカ（仮）</p>
+      
       <Link to="/create"><ButtonComponent text={"原稿を作成する"} /></Link><br></br>
+      <Space h="lg" />
       <Link to="/select"><ButtonComponent text={"採点開始"} /></Link><br></br>
+      <Space h="lg" />
       <Link to="/practice"><ButtonComponent text={"練習する"} /></Link><br></br>
     </>
     );
