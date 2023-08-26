@@ -1,6 +1,7 @@
 import { Button } from "@mantine/core";
 import { text } from "stream/consumers";
 
+
 type Props = {
   text: String;
 };
