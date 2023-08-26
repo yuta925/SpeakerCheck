@@ -1,6 +1,7 @@
 import { Button } from "@mantine/core";
 
 
+
 type Props = {
   text: String;
 };
