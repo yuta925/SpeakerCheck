@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonComponent from "../components/Button";
 import { Link } from "react-router-dom";
-import { Text, Space } from "@mantine/core";
+import { Space } from "@mantine/core";
 
 function Home() {
   return (
