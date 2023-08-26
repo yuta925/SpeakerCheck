@@ -7,9 +7,11 @@ import Practice from './pages/practice';
 import Create from './pages/create';
 import Select from './pages/select';
 
+
 function App() {
   return (
-    <BrowserRouter>
+    <main>
+      <BrowserRouter>
       <div className="App">
         <ul>
           <li><Link to="/">Home</Link></li>
@@ -25,7 +27,8 @@ function App() {
           <Route path="/select" element={<Select />} />
         </Routes>
       </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </main>
   );
 }
 
