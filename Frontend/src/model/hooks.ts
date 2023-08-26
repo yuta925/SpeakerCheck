@@ -44,7 +44,6 @@ export const useHooks = (): Hooks => {
       handleDataAvailable
     );
     setIsAudio(true);
-    console.log("音声開始", mediaRecorder.current?.state);
   };
 
   const stopRecording = () => {
