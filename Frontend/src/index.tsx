@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { useHooks } from "./model/hooks";
 
 export const Index = () => {
-  const { startRecording, stopRecording, isAudio } = useHooks();
+  const { startRecording, stopRecording, isAudio, transcript } = useHooks();
 
   return (
     <>
@@ -16,6 +16,8 @@ export const Index = () => {
       <button type="button" onClick={stopRecording} disabled={!isAudio}>
         録音ストップ
       </button>
+
+      <p>{transcript}</p>
     </>
   );
 };
