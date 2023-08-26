@@ -9,7 +9,7 @@ const ButtonComponent = (props: Props) => {
   const { text } = props;
 
   return (
-    <Button w="400px" h="52px">
+    <Button w="400px" h="52px" color="dark">
       {text}
     </Button>
   );
