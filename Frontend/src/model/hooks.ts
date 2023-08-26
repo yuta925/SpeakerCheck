@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { isPrivateIdentifier } from "typescript";
 
 type Hooks = {
   startRecording: () => void;
   stopRecording: () => void;
   transcript: string;
+  response: string;
   isAudio: boolean;
 };
+
+const APIKEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 export const useHooks = (): Hooks => {
   const mediaRecorder = useRef<MediaRecorder | null>(null);
@@ -14,10 +16,7 @@ export const useHooks = (): Hooks => {
   const [isAudio, setIsAudio] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [transcript, setTranscript] = useState<string>("");
-
-  // API キーを取得
-  const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-  //   const apiKey = "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";
+  const [response, setResponse] = useState<string>("");
 
   const handleDataAvailable = (event: BlobEvent) => {
     // 音声ファイル生成
@@ -40,7 +39,6 @@ export const useHooks = (): Hooks => {
     );
     setIsAudio(true);
     console.log("音声開始", mediaRecorder.current?.state);
-    console.log("apiKey", apiKey);
   };
 
   const stopRecording = () => {
@@ -54,10 +52,8 @@ export const useHooks = (): Hooks => {
   useEffect(() => {
     const uploadAudio = async () => {
       if (!audioFile) return;
-      const endPoint = "https://api.openai.com/v1/audio/transcriptions";
-
+      const endPointOfAudio = "https://api.openai.com/v1/audio/transcriptions";
       const formData = new FormData();
-      console.log("フォーマット");
 
       // fileを指定
       formData.append("file", audioFile, "audio.mp3");
@@ -65,21 +61,16 @@ export const useHooks = (): Hooks => {
       formData.append("model", "whisper-1");
       // languageを指定
       formData.append("language", "ja");
-      // プロンプトを指定
-      formData.append("prompt", "今日の天気について話してください。");
 
       setIsLoading(true);
-      console.log("ローディング");
-      const response = await fetch(endPoint, {
+      const response = await fetch(endPointOfAudio, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${APIKEY}`,
         },
         body: formData,
       });
       const responseData = await response.json();
-
-      console.log("レスポンス", responseData);
       if (responseData.text) {
         // 文字起こしされたテキスト
         setTranscript(responseData.text);
@@ -87,7 +78,46 @@ export const useHooks = (): Hooks => {
       setAudioFile(null);
       setIsLoading(false);
     };
+
+    const getResponse = async () => {
+      if (!transcript) return;
+      const endPointOfChat = "https://api.openai.com/v1/chat/completions";
+
+      // apiの設定
+      const result = await fetch(endPointOfChat, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${APIKEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          max_tokens: 100,
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "user",
+              content:
+                "今からいう言葉に関して、イントネーションや滑舌の良し悪しについてフィードバックをしてください",
+            },
+            {
+              role: "user",
+              content: transcript,
+            },
+          ],
+        }),
+      });
+
+      const responseData = await result.json();
+      if (responseData.choices) {
+        // 文字起こしされたテキスト
+        setResponse(responseData.choices[0].message.content);
+      } else {
+        setResponse("エラーです");
+      }
+    };
+
     uploadAudio();
+    getResponse();
   }, [audioFile]);
 
   return {
@@ -95,5 +125,6 @@ export const useHooks = (): Hooks => {
     stopRecording,
     isAudio,
     transcript,
+    response,
   };
 };
