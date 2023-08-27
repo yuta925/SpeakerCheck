@@ -6,13 +6,19 @@ import Home from './pages/home';
 import Practice from './pages/practice';
 import Create from './pages/create';
 import Select from './pages/select';
+import CharComponent from './components/Panel';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         
-      <p><Link to="/">Home</Link></p>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/practice">Practice</Link></li>
+            <li><Link to="/create">Create</Link></li>
+            <li><Link to="/select">Select</Link></li>
+          </ul>
       
         <Routes>
           <Route path="/" element={<Home />} />
