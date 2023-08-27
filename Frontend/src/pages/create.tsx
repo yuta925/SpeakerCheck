@@ -20,14 +20,10 @@ const Create = () => {
 
   return (
     <div>
-      <Modal
-        opened={opened}
-        onClose={close}
-        size="auto"
-        title="Modal size auto"
-      >
-        <Button text={"キャンセル"} width={"base"}></Button>
-        <Button text={"登録"} width={"base"}></Button>
+      <Modal opened={opened} onClose={close} size="auto" title="登録しますか？">
+        <Flex gap={32}>
+          <Button text={"登録"} width={"base"}></Button>
+        </Flex>
       </Modal>
       <Flex justify="flex-end" gap="md" mx={63} mt={40}>
         <Link to="/">
