@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
 import Button from "../components/Button";
 import { Flex, TextInput, Textarea } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const Create = () => {
   const [input, setInput] = React.useState("");
@@ -18,6 +19,9 @@ const Create = () => {
   return (
     <div>
       <Flex justify="flex-end" gap="md" mx={63} mt={40}>
+        <Link to="/">
+          <Button text={"ホームへ"} width={"base"}></Button>
+        </Link>
         <Button text={"下書き保存"} width={"base"}></Button>
         <Button text={"登録"} width={"base"}></Button>
       </Flex>
