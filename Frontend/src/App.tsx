@@ -6,6 +6,7 @@ import Home from './pages/home';
 import Practice from './pages/practice';
 import Create from './pages/create';
 import Select from './pages/select';
+import { TotalDisplay } from './model/maxTotalDisplay';
 
 function App() {
   
@@ -28,6 +29,7 @@ function App() {
         </Routes>
       </div>
       </BrowserRouter>
+      <TotalDisplay />
     </main>
   );
 }
