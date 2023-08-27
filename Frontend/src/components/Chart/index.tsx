@@ -1,18 +1,4 @@
-import React, { PureComponent } from "react";
-import { text } from "stream/consumers";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  Label,
-  ReferenceArea,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis } from "recharts";
 import { Box, Text } from "@mantine/core";
 
 type Props = {
