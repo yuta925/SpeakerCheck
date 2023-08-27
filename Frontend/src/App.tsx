@@ -6,7 +6,6 @@ import Home from './pages/home';
 import Practice from './pages/practice';
 import Create from './pages/create';
 import Select from './pages/select';
-import { TotalDisplay } from './model/maxTotalDisplay';
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
           <Route path="/select" element={<Select />} />
         </Routes>
       </div>
-      <TotalDisplay />
     </BrowserRouter>
   );
 }
