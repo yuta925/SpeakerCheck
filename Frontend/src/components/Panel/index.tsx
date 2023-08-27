@@ -10,7 +10,7 @@ const CharComponent = (props: Props) => {
 
     return (
         <div className="border-8 h-[542px] w-112 relative　py-16 px-14">
-            <Flex gap="5px" text-center className="py-[100px]">
+            <Flex gap="40px" text-center className="py-[100px]">
                 <div>
                     <Text color="#7C7E83" size="32px" className="font-bold">
                         前回の点数
@@ -21,7 +21,7 @@ const CharComponent = (props: Props) => {
                     </Flex>
                     <Text size="40px" >タイトル</Text>
                 </div>
-                <Text size="32px" className=" line-clamp-3　">{text} </Text>
+                <Text size="32px" className=" w-30 h-60 text-left line-clamp-5  ">{text}</Text>
             </Flex >
         </div >
     );
