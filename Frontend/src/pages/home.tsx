@@ -1,7 +1,8 @@
-import React from "react";
-import ButtonComponent from "../components/Button";
-import { Link } from "react-router-dom";
-import { Text, Space } from "@mantine/core";
+import React from 'react';
+import ButtonComponent from '../components/Button';
+import { BrowserRouter, Router, Route, Routes, Link } from 'react-router-dom';
+import { Space } from '@mantine/core';
+
 
 function Home() {
   return (
