@@ -1,18 +1,19 @@
 import React from 'react';
-import { Text, Space } from "@mantine/core";
+import { Text, Space, Center } from "@mantine/core";
 import ScoreComponent from "../components/Score"
 import ChartList from '../components/Chart/List';
 import CharComponent from '../components/Panel';
 import ButtonComponent from '../components/Button';
 import { Flex } from "@mantine/core";
 import { Link } from "react-router-dom";
+import AIcommentComponent from '../components/AIcomment';
 
 
 
 const Result = () => {
     return (
         <>
-            <Text>採点結果ページ</Text>
+            <Space h="lg" />
             <Flex
             mih={50}
             gap="lg"
@@ -23,7 +24,10 @@ const Result = () => {
                 <ScoreComponent text='100'></ScoreComponent>
                 <ChartList data={[10, 10, 25, 20]}></ChartList>
             </Flex>
-            <CharComponent text={"すてき"}/>
+            <Space h="lg" />
+            <Center>
+                    <AIcommentComponent style={{ padding: '50px' }}/>
+            </Center>
             <Space h="lg" />
             <Flex
             mih={50}
