@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { Flex, TextInput, Textarea, Modal } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
+import { AddManuscriptButton } from "../model/addManuscript";
 
 const Create = () => {
   const [input, setInput] = React.useState("");
@@ -11,9 +12,6 @@ const Create = () => {
   const handleTextChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => {
       setText(e.target.value);
-      setTimeout(() => {
-        console.log("何かしらデータを保存する処理");
-      }, 1000);
     },
     []
   );
@@ -21,9 +19,10 @@ const Create = () => {
   return (
     <div>
       <Modal opened={opened} onClose={close} size="auto" title="登録しますか？">
-        <Flex gap={32}>
-          <Button text={"登録"} width={"base"} ></Button>
-        </Flex>
+        <AddManuscriptButton
+          title={input}
+          description={text}
+        ></AddManuscriptButton>
       </Modal>
       <Flex justify="flex-end" gap="md" mx={63} mt={40}>
         <Link to="/">
@@ -38,21 +37,21 @@ const Create = () => {
         h={54}
         mx={63}
         size="lg"
-        py={32}
-        onChange={(event) => setInput(event.currentTarget.value)}
+        py={36}
+        onChange={(event: {
+          currentTarget: { value: React.SetStateAction<string> };
+        }) => setInput(event.currentTarget.value)}
       />
-      <div>
-        <Textarea
-          minRows={23}
-          mx={63}
-          placeholder="原稿"
-          description={text.length + "字"}
-          onChange={handleTextChange}
-          styles={{
-            description: { textAlign: "right" },
-          }}
-        />
-      </div>
+      <Textarea
+        minRows={23}
+        mx={63}
+        placeholder="原稿"
+        description={text.length + "字"}
+        onChange={handleTextChange}
+        styles={{
+          description: { textAlign: "right" },
+        }}
+      />
     </div>
   );
 };
