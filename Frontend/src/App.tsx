@@ -10,21 +10,6 @@ function App() {
     <div>
       <BrowserRouter>
         <div className="App">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/practice">Practice</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
-            <li>
-              <Link to="/select">Select</Link>
-            </li>
-          </ul>
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/practice" element={<Practice />} />

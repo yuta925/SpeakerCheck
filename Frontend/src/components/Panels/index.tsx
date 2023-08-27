@@ -1,5 +1,5 @@
 import CharComponent from "../Panel";
-import { ScrollArea } from '@mantine/core';
+import { ScrollArea, Flex } from '@mantine/core';
 
 
 export const Panels = () => {
@@ -7,10 +7,12 @@ export const Panels = () => {
       <>
         <ScrollArea w={1200} h={350} >
           <div className="flex flex-row ">
-            <CharComponent text="aaa" />
-            <CharComponent text="aaa" />
-            <CharComponent text="aaa" />
-            <CharComponent text="aaa" />
+            <Flex gap="40px">
+              <CharComponent text="aaa" />
+              <CharComponent text="aaa" />
+              <CharComponent text="aaa" />
+              <CharComponent text="aaa" />
+            </Flex>
           </div>
         </ScrollArea>
       </>

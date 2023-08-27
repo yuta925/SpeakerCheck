@@ -9,7 +9,7 @@ const CharComponent = (props: Props) => {
   const { text } = props;
 
   return (
-    <div className="border-8 h-[350px] w-[650px] relative py-16 px-14">
+    <div className="h-[350px] w-[650px] relative py-16 px-14 bg-white">
       <Flex gap="40px" text-center >
         <div className="my-2">
           <Text color="#7C7E83" size="16px" className="font-bold">
