@@ -4,7 +4,7 @@ import React from 'react';
 function Result() {
   return (
     <>
-    <ChartComponent name= {"採点項目"} score={20} />
+    <ChartComponent name= {"採点項目"} score={10} />
     </>
 );
 }
