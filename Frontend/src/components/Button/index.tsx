@@ -1,16 +1,16 @@
 import { Button } from "@mantine/core";
-import { text } from "stream/consumers";
-
 
 type Props = {
   text: String;
+  width: String;
 };
 
 const ButtonComponent = (props: Props) => {
-  const { text } = props;
+  const { text, width } = props;
+  const size = width === "base" ? 164 : 400;
 
   return (
-    <Button w="400px" h="52px" color="dark">
+    <Button w={size} h="52px" color="dark">
       {text}
     </Button>
   );

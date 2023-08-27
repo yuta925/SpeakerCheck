@@ -9,17 +9,17 @@ function Home() {
       <p style={{ fontSize: "80px" }}>ユースピカ（仮）</p>
 
       <Link to="/create">
-        <ButtonComponent text={"原稿を作成する"} />
+        <ButtonComponent text={"原稿を作成する"} width={"lg"} />
       </Link>
       <br></br>
       <Space h="lg" />
       <Link to="/select">
-        <ButtonComponent text={"採点開始"} />
+        <ButtonComponent text={"採点開始"} width={"lg"} />
       </Link>
       <br></br>
       <Space h="lg" />
       <Link to="/practice">
-        <ButtonComponent text={"練習する"} />
+        <ButtonComponent text={"練習する"} width={"lg"} />
       </Link>
       <br></br>
     </>
