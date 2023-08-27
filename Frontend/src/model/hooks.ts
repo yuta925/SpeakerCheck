@@ -14,7 +14,7 @@ type Hooks = {
 
 const APIKEY = process.env.REACT_APP_OPENAI_API_KEY;
 const PROMPT =
-  "下記の文章に関して、以下の評価項目に関してフィードバックをしてください.また、以下のフォーマットは必ず守るようにしてください！[フィードバック評価項目] 1. <イントネーション: {イントーネーションの点数}>(25点満点)・・・イントネーションの変化や調子はどうでしたか？ 2. <発音や言葉のはっきりさ、滑舌: {発音や言葉のはっきりさ、滑舌の点数}> (25点満点)・・・発音や言葉のはっきりさ、滑舌の良さについてどう思いますか？25点中何点ですか？ 3. <話すスピード: {話すスピードの点数}>(25点満点)・・・話し方の速さやペース、一貫性について評価してください。25点中何点ですか？ 4. <声の大きさ: {声の大きさの点数}> (25点満点)・・・声の大きさや音量は適切でしたか？25点中何点ですか? <合計得点:{合計得点}> （合計得点を100点満点で計算） <全体コメント: {全体のコメントの点数}点>（全体的な印象や改善点についてコメントしてください） このプロンプトを使用して、各評価項目について25点満点で評価し、最後に全体コメントを提供してください。{}の中には適切な内容を入れてください。";
+  "<>は必ず残してください。{}の中には具体的な採点結果を入れてください。次のプロンプトに関して、以下の評価項目に沿って評価をしてください.また、以下のフィードバックテンプレートは必ず守るようにしてください！[評価項目の説明] 1. intonation・・・イントネーションの変化や調子はどうでしたか？ 2. articulation・・・発音や言葉のはっきりさ、滑舌の良さについてどう思いますか？25点中何点ですか？ 3. speed・・・話し方の速さやペース、一貫性について評価してください。25点中何点ですか？ 4. loudnessOfVoice・・・声の大きさや音量は適切でしたか？25点中何点ですか? [フィードバックテンプレート] <intonation: {点数}>, <articulation: {点数}>, <speed: {点数}>, <loudnessOfVoice: {点数}>, <total:{点数}> （合計得点を100点満点で計算） <AIcomment: {コメント}>（全体的な印象や改善点についてコメントしてください） 下記プロンプトを使用して、各評価項目について25点満点で評価し、最後に全体コメントを提供してください. 結果だけを返してください";
 
 export const useHooks = (): Hooks => {
   const mediaRecorder = useRef<MediaRecorder | null>(null);
@@ -23,7 +23,6 @@ export const useHooks = (): Hooks => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [transcript, setTranscript] = useState<string>("");
   const [response, setResponse] = useState<string>("");
-  const [match, setMatch] = useState<RegExpExecArray | null>(null);
 
   const handleDataAvailable = (event: BlobEvent) => {
     // 音声ファイル生成
@@ -123,10 +122,7 @@ export const useHooks = (): Hooks => {
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
           messages: [
-            {
-              role: "user",
-              content: PROMPT,
-            },
+            { role: "user", content: PROMPT },
             {
               role: "user",
               content: transcript,
