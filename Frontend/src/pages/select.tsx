@@ -1,13 +1,11 @@
-import React from 'react';
 import { Text } from "@mantine/core";
-import CharComponent from '../components/Panel';
-
+import { Panels } from '../components/Panels';
 
 const Select = () => {
   return (
     <div>
       <Text>原稿選択ページ</Text>
-      <CharComponent text='あああああああああああああああああああああああああああああああああああああああああ'></CharComponent>
+      <Panels />
     </div>
   );
 };

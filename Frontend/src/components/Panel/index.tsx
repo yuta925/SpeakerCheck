@@ -9,14 +9,14 @@ const CharComponent = (props: Props) => {
   const { text } = props;
 
   return (
-    <div className="border-8 h-[542px] w-112 relative　py-16 px-14">
-      <Flex gap="40px" text-center className="py-[100px]">
-        <div>
-          <Text color="#7C7E83" size="32px" className="font-bold">
+    <div className="border-8 h-[350px] w-[650px] relative py-16 px-14">
+      <Flex gap="40px" text-center >
+        <div className="my-2">
+          <Text color="#7C7E83" size="16px" className="font-bold">
             前回の点数
           </Text>
           <Flex align="center">
-            <Text size="128px">100</Text>
+            <Text size="64px">100</Text>
             <Text size="32px">点</Text>
           </Flex>
           <Text size="40px">タイトル</Text>
