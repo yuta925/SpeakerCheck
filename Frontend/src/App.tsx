@@ -9,18 +9,17 @@ import Select from './pages/select';
 import { TotalDisplay } from './model/maxTotalDisplay';
 
 function App() {
-  
   return (
-    <main>
-      <BrowserRouter>
+    <BrowserRouter>
       <div className="App">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/practice">Practice</Link></li>
-          <li><Link to="/create">Create</Link></li>
-          <li><Link to="/select">Select</Link></li>
-        </ul>
-
+        
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/practice">Practice</Link></li>
+            <li><Link to="/create">Create</Link></li>
+            <li><Link to="/select">Select</Link></li>
+          </ul>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/practice" element={<Practice />} />
@@ -28,31 +27,9 @@ function App() {
           <Route path="/select" element={<Select />} />
         </Routes>
       </div>
-      </BrowserRouter>
       <TotalDisplay />
-    </main>
+    </BrowserRouter>
   );
 }
-
-
-{/*function App() {
-  return (
-    <Router>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
-
-    <Routes>
-      <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes> 
-    </Router>
-  );
-}
-
-*/}
 
 export default App;
