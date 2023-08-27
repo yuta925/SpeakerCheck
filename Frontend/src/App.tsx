@@ -6,9 +6,6 @@ import Home from './pages/home';
 import Practice from './pages/practice';
 import Create from './pages/create';
 import Select from './pages/select';
-import ReviewComponent from './pages/Manuscript';
-import { FirestoreDisplay } from './yuta/queryGet';
-
 
 function App() {
   
