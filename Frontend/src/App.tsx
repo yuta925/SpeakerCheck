@@ -1,12 +1,9 @@
-import React from "react";
-import logo from "./logo.svg";
-import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import Practice from "./pages/practice";
 import Create from "./pages/create";
 import Select from "./pages/select";
-import CharComponent from "./components/Panel";
 
 function App() {
   return (
