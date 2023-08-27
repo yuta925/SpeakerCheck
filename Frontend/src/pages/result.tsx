@@ -1,10 +1,8 @@
 import React from 'react';
-import { Text, Space, Center } from "@mantine/core";
+import { Text, Space, Center, Flex } from "@mantine/core";
 import ScoreComponent from "../components/Score"
 import ChartList from '../components/Chart/List';
-import CharComponent from '../components/Panel';
 import ButtonComponent from '../components/Button';
-import { Flex } from "@mantine/core";
 import { Link } from "react-router-dom";
 import AIcommentComponent from '../components/AIcomment';
 
@@ -13,7 +11,7 @@ import AIcommentComponent from '../components/AIcomment';
 const Result = () => {
     return (
         <>
-            <Space h="lg" />
+            <Space h="xl" />
             <Flex
             mih={50}
             gap="lg"
@@ -24,11 +22,11 @@ const Result = () => {
                 <ScoreComponent text='100'></ScoreComponent>
                 <ChartList data={[10, 10, 25, 20]}></ChartList>
             </Flex>
-            <Space h="lg" />
+            <Space h="102px" />
             <Center>
                     <AIcommentComponent style={{ padding: '50px' }}/>
             </Center>
-            <Space h="lg" />
+            <Space h="42px" />
             <Flex
             mih={50}
             gap="lg"
@@ -37,11 +35,9 @@ const Result = () => {
             wrap="wrap"
             >
                 <Link to="/">
-                <ButtonComponent text={"タイトル"} width={"lg"} />
+                <ButtonComponent text={"タイトル"} width={"lg"} variant="light"  />
                 </Link>
-                <Link to="/practice">
                 <ButtonComponent text={"再チャレンジ"} width={"lg"} />
-                </Link>
             </Flex>
             <Space h="lg" />
         </>
