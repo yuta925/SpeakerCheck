@@ -1,12 +1,9 @@
-import React from "react";
-import logo from "./logo.svg";
-import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import Practice from "./pages/practice";
 import Create from "./pages/create";
 import Select from "./pages/select";
-import CharComponent from "./components/Panel";
 
 function App() {
   return (
@@ -36,7 +33,6 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      <CharComponent text="登録した文章がここに表示され、文字制限以上は…で省略されるはずでありましょうともしかしもしもここにある文字が全部読めていればそれは何かしらのバグであるため一体それがなぜ起こっているのかを探究する必要がありましょうともというわけでここでは上記の目的が達せられていればただの独白にもならぬ言葉でいつまでもこのことを忘れていればよろしいのでしょう" />
     </div>
   );
 }
