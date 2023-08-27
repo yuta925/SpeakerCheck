@@ -14,7 +14,6 @@ function Home() {
       <Link to="/select"><ButtonComponent text={"採点開始"} /></Link><br></br>
       <Space h="lg" />
       <Link to="/practice"><ButtonComponent text={"練習する"} /></Link><br></br>
-      <Link to="/result"><ButtonComponent text={"テスト結果"} /></Link><br></br>
     </>
     );
 }
