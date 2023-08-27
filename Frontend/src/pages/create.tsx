@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { Flex, TextInput, Textarea, Modal } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
-import { AddManuscript } from "../model/addManuscript";
+import { AddManuscriptButton } from "../model/addManuscript";
 
 const Create = () => {
   const [input, setInput] = React.useState("");
@@ -12,23 +12,17 @@ const Create = () => {
   const handleTextChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => {
       setText(e.target.value);
-      console.log(e.target.value);
-      console.log(input);
     },
     []
   );
 
-  const handleClick = () => {
-    console.log("input: ", input, "text: ", text);
-    AddManuscript(input, text);
-  };
-
   return (
     <div>
       <Modal opened={opened} onClose={close} size="auto" title="登録しますか？">
-        <Flex gap={32}>
-          <Button text={"登録"} width={"base"} onClick={handleClick}></Button>
-        </Flex>
+        <AddManuscriptButton
+          title={input}
+          description={text}
+        ></AddManuscriptButton>
       </Modal>
       <Flex justify="flex-end" gap="md" mx={63} mt={40}>
         <Link to="/">

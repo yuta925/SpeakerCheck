@@ -1,6 +1,7 @@
 import React from "react";
 import { doc, collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import ButtonComponent from "../components/Button";
 
 interface ManuscriptData {
   date: Timestamp;
@@ -9,22 +10,24 @@ interface ManuscriptData {
   title: string;
 }
 
-export const AddManuscript = (title: string, description: string) => {
+type Props = {
+  title: string;
+  description: string;
+};
+
+export const AddManuscriptButton = (props: Props) => {
+  const { title, description } = props;
   async function addManuscriptToUser(
     userId: string,
     manuscriptData: ManuscriptData
   ) {
     console.log("addManuscriptToUser");
-    const userRef = doc(db, "User", userId);
-    console.log("userRef: ", userRef.id);
-    const manuscriptsCollection = collection(userRef, "Manuscript");
-    console.log("manuscriptsCollection: ", manuscriptsCollection.id);
+    const manuscriptsCollection = collection(db, `User/${userId}/Manuscript`);
     const docRef = await addDoc(manuscriptsCollection, manuscriptData);
     console.log("Document written with ID: ", docRef.id);
   }
 
-  const handleButtonClick = () => {
-    console.log(handleButtonClick);
+  const handleButtonClick = async () => {
     const newManuscript: ManuscriptData = {
       date: Timestamp.fromDate(new Date()),
       isDraft: true,
@@ -32,11 +35,14 @@ export const AddManuscript = (title: string, description: string) => {
       title: title,
     };
 
-    console.log(newManuscript);
-
-    addManuscriptToUser("dlMNWGAQh8r99bNNapel", newManuscript);
+    await addManuscriptToUser("dlMNWGAQh8r99bNNapel", newManuscript);
   };
 
-  console.log("handle click");
-  handleButtonClick();
+  return (
+    <ButtonComponent
+      text={"登録"}
+      width={"base"}
+      onClick={handleButtonClick}
+    ></ButtonComponent>
+  );
 };
