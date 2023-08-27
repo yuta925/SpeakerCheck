@@ -13,7 +13,7 @@ export const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const firebase = initializeApp(firebaseConfig);
-
-export const firestore = getFirestore(firebase);
+const app = initializeApp(firebaseConfig);
+// db情報をexport
+export const db = getFirestore(app);
 
