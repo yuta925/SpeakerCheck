@@ -10,16 +10,19 @@ import { useHooks } from "../model/hooks";
 const Result = () => {
   const { startRecording, stopRecording, isAudio, response, score } =
     useHooks();
-  const scoreData = [
-    parseInt(score[0].intonation),
-    parseInt(score[2].speed),
-    parseInt(score[1].articulation),
-    parseInt(score[3].loudnessOfVoice),
-  ];
-  const totalScore = parseInt(score[4].total);
-  const comment = score[5].AIcomment;
+  // const scoreData = [
+  //   parseInt(score[0].intonation),
+  //   parseInt(score[2].speed),
+  //   parseInt(score[1].articulation),
+  //   parseInt(score[3].loudnessOfVoice),
+  // ];
+  const scoreData = [21, 14, 20, 11];
+  // const totalScore = parseInt(score[4].total);
+  const totalScore = 46;
+  // const comment = score[5].AIcomment;
+  const comment =
+    "発音は非常にはっきりとしており、滑舌も良かったです。イントネーションには少し変化が欲しかったですが、全体的には非常に良いパフォーマンスでした。声の大きさや速さも適切でした。改善点としては、もう少しイントネーションの変化を取り入れることで表現力がアップすると思います。";
 
-  console.log("response", score[0].intonation);
   return (
     <>
       <Space h="xl" />
@@ -28,7 +31,6 @@ const Result = () => {
           <ScoreComponent text={totalScore.toString()}></ScoreComponent>
           <ChartList data={scoreData}></ChartList>
         </>
-        ;{/* })} */}
       </Flex>
       <Space h="102px" />
       <Center>
@@ -46,12 +48,6 @@ const Result = () => {
         />
       </Flex>
       <Space h="lg" />
-      <button type="button" onClick={startRecording} disabled={isAudio}>
-        録音スタート
-      </button>
-      <button type="button" onClick={stopRecording} disabled={!isAudio}>
-        録音ストップ
-      </button>
     </>
   );
 };
