@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { Flex, TextInput, Textarea, Modal } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
+import ButtonComponent from "../components/Button";
 
 const Create = () => {
   const [input, setInput] = React.useState("");
@@ -22,15 +23,32 @@ const Create = () => {
     <div>
       <Modal opened={opened} onClose={close} size="auto" title="登録しますか？">
         <Flex gap={32}>
-          <Button text={"登録"} width={"base"} ></Button>
+          <ButtonComponent
+            text={"登録"}
+            width={"base"}
+            variant={"outline"}
+          ></ButtonComponent>
         </Flex>
       </Modal>
       <Flex justify="flex-end" gap="md" mx={63} mt={40}>
         <Link to="/">
-          <Button text={"ホームへ"} width={"base"}></Button>
+          <ButtonComponent
+            text={"ホームへ"}
+            width={"base"}
+            variant={"outline"}
+          ></ButtonComponent>
         </Link>
-        <Button text={"下書き保存"} width={"base"}></Button>
-        <Button text={"登録"} width={"base"} onClick={open}></Button>
+        <ButtonComponent
+          text={"下書き保存"}
+          width={"base"}
+          variant={"outline"}
+        ></ButtonComponent>
+        <ButtonComponent
+          text={"登録"}
+          width={"base"}
+          onClick={open}
+          variant={"outline"}
+        ></ButtonComponent>
       </Flex>
       <TextInput
         value={input}

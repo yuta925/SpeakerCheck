@@ -4,7 +4,8 @@ import Home from "./pages/home";
 import Practice from "./pages/practice";
 import Create from "./pages/create";
 import Select from "./pages/select";
-import Scoring from "./pages/scoring"
+import Scoring from "./pages/scoring";
+import Result from "./pages/result";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path="/select" element={<Select />} />
             <Route path="/scoring" element={<Scoring />} />
+            <Route path="/result" element={<Result />} />
           </Routes>
         </div>
       </BrowserRouter>
