@@ -10,24 +10,29 @@ import { useHooks } from "../model/hooks";
 const Result = () => {
   const { startRecording, stopRecording, isAudio, response, score } =
     useHooks();
-  console.log("response", score[0]);
+  const scoreData = [
+    parseInt(score[0].intonation),
+    parseInt(score[2].speed),
+    parseInt(score[1].articulation),
+    parseInt(score[3].loudnessOfVoice),
+  ];
+  const totalScore = parseInt(score[4].total);
+  const comment = score[5].AIcomment;
+
+  console.log("response", score[0].intonation);
   return (
     <>
       <Space h="xl" />
-      <Flex
-        mih={50}
-        gap="lg"
-        justify="center"
-        align="center"
-        // direction="Row"
-        wrap="wrap"
-      >
-        <ScoreComponent text="100"></ScoreComponent>
-        <ChartList data={[10, 10, 25, 20]}></ChartList>
+      <Flex mih={50} gap="lg" justify="center" align="center" wrap="wrap">
+        <>
+          <ScoreComponent text={totalScore.toString()}></ScoreComponent>
+          <ChartList data={scoreData}></ChartList>
+        </>
+        ;{/* })} */}
       </Flex>
       <Space h="102px" />
       <Center>
-        <AIcommentComponent text={score[0].value} />
+        <AIcommentComponent text={comment} />
       </Center>
       <Space h="42px" />
       <Flex mih={50} gap="lg" justify="center" align="center" wrap="wrap">
