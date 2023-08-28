@@ -2,7 +2,8 @@ import { BackgroundImage } from "@mantine/core";
 import { Text, Paper, Title, Box } from "@mantine/core";
 import table from "../image/机.jpeg"
 
-const Result = () => {
+const Scoring = () => {
+  // scoring画面からresult画面へ遷移
   return (
     <Box mx="auto">
       <BackgroundImage src={table} radius="xs" sx={{
@@ -28,4 +29,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default Scoring;
