@@ -1,11 +1,11 @@
 import { BackgroundImage } from "@mantine/core";
-import { Panels } from '../components/Panels';
-import backGroundImage from '../image/background.jpg'
+import { Panels } from "../components/Panels";
+import backGroundImage from "../image/background.jpg";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import ButtonComponent from "../components/Button";
 
 const Select = () => {
-
   return (
     <div>
       <BackgroundImage src={backGroundImage} radius="xs">
@@ -23,5 +23,3 @@ const Select = () => {
 };
 
 export default Select;
-
-

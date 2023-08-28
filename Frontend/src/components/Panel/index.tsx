@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, Flex, Modal } from "@mantine/core";
-import { useDisclosure } from '@mantine/hooks';
-import Button from "../Button"
+import { useDisclosure } from "@mantine/hooks";
+import Button from "../Button";
 import { Link } from "react-router-dom";
+import ButtonComponent from "../Button";
 
 type Props = {
   date: string;
