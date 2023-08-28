@@ -10,8 +10,8 @@ const Result = () => {
   const { startRecording, stopRecording, response, score } = useHooks();
   const [isRecording, setisRecording] = useState<boolean>(false);
 
-  const handleClick = () => {
     if (isRecording) {
+      console.log("score:", score[0])
       stopRecording();
     } else {
       startRecording();
@@ -68,7 +68,7 @@ const Result = () => {
           )}
         </div>
         <div className="mt-4">
-          <Link to="/result">
+          <Link to="/result" state={{ state: score }}>
             <ButtonComponent
               text={"採点する"}
               width={"base"}

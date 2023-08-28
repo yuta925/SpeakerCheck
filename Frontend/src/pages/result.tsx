@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, Space, Center, Flex } from "@mantine/core";
 import ScoreComponent from "../components/Score";
 import ChartList from "../components/Chart/List";
 import ButtonComponent from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AIcommentComponent from "../components/AIcomment";
 import { useHooks } from "../model/hooks";
 
-const Result = () => {
-  const { startRecording, stopRecording, isAudio, response, score } =
-    useHooks();
-  const scoreData = [
-    parseInt(score[0].intonation),
-    parseInt(score[2].speed),
-    parseInt(score[1].articulation),
-    parseInt(score[3].loudnessOfVoice),
-  ];
-  const totalScore = parseInt(score[4].total);
-  const comment = score[5].AIcomment;
+interface ExtractedData {
+  [key: string]: string;
+}
 
-  console.log("response", score[0].intonation);
+const Result = () => {
+  const { state } = useLocation();
+  const scoreData = [
+    parseInt(state[0].intonation),
+    parseInt(state[2].speed),
+    parseInt(state[1].articulation),
+    parseInt(state[3].loudnessOfVoice),
+  ];
+  // const scoreData = [21, 21, 21, 21];
+  const totalScore = parseInt(state[4].total);
+  // const totalScore = 84;
+  const comment = state[5].AIcomment;
+  // const comment = "score[5].AIcomment";
+
+  console.log("response", state[0]);
   return (
     <>
       <Space h="xl" />
