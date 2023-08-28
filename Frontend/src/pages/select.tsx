@@ -11,11 +11,7 @@ const Select = () => {
       <BackgroundImage src={backGroundImage} radius="xs">
         <div className="pt-8">
           <Link to="/">
-            <ButtonComponent
-              text={"ホームへ"}
-              width={"base"}
-              variant={"outline"}
-            ></ButtonComponent>
+            <Button text={"ホームへ"} size="lg"></Button>
           </Link>
         </div>
         <div className="mt-20 pb-48">
