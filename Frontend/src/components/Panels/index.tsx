@@ -5,18 +5,11 @@ import { collection, query, getDocs, DocumentData, Timestamp } from '@firebase/f
 import { db } from "../../firebaseConfig";
 import { format } from 'date-fns'
 
-type DataArray = {
-  date: string;
-  isDraft: boolean;
-  title: string;
-  text: string;
-}[]
 
 export const Panels = () => {
   const [data, setData] = useState<DocumentData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  // todo：Manuscript配下のデータを取得
   useEffect(() => {
     const fetchManuscripts = async () => {
       try {

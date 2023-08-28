@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, Flex, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import Button from "../Button";
 import { Link } from "react-router-dom";
 import ButtonComponent from "../Button";
 
@@ -35,13 +34,13 @@ const CharComponent = (props: Props) => {
       </Text>
 
       <div className="flex items-center justify-center mt-4">
-          <Button text={"この原稿にする"} size="sm" onClick={open} />
+          <ButtonComponent text={"この原稿にする"} width={"base"} variant={"filled"} onClick={open} ></ ButtonComponent>
       </div>
 
       <Modal centered opened={opened} onClose={close} size="auto" title="こちらの原稿でよろしいですか？">
         <div className="flex justify-center items-center">
-          <Link to="/scoring">
-            <Button text={"決定"} size="md"/>
+          <Link to="/scoring" className="">
+            <ButtonComponent text={"決定"} width={"base"} variant={"filled"}></ButtonComponent>
           </Link>
         </div>
       </Modal>
