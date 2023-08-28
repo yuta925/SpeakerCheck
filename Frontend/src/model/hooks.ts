@@ -10,7 +10,17 @@ type Hooks = {
   transcript: string;
   response: string;
   isAudio: boolean;
+  score: ExtractedData[];
 };
+
+interface ScoringResultData {
+  intonation: number;
+  speed: number;
+  articulation: number;
+  loudnessOfVoice: number;
+  total: number;
+  AIcomment: string;
+}
 
 const APIKEY = process.env.REACT_APP_OPENAI_API_KEY;
 const PROMPT =
@@ -23,6 +33,7 @@ export const useHooks = (): Hooks => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [transcript, setTranscript] = useState<string>("");
   const [response, setResponse] = useState<string>("");
+  const [score, setScore] = useState<ExtractedData[]>([]);
 
   const handleDataAvailable = (event: BlobEvent) => {
     // 音声ファイル生成
@@ -74,10 +85,12 @@ export const useHooks = (): Hooks => {
     }
 
     console.log("results: ", results);
+    setScore(results);
   };
 
   useEffect(() => {
     const uploadAudio = async () => {
+      console.log("録音開始");
       if (!audioFile) return;
       const endPointOfAudio = "https://api.openai.com/v1/audio/transcriptions";
       const formData = new FormData();
@@ -149,5 +162,6 @@ export const useHooks = (): Hooks => {
     isAudio,
     transcript,
     response,
+    score,
   };
 };
