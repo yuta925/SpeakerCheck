@@ -22,15 +22,15 @@ const Create = () => {
     <div>
       <Modal opened={opened} onClose={close} size="auto" title="登録しますか？">
         <Flex gap={32}>
-          <Button text={"登録"} width={"base"} ></Button>
+          <Button text={"登録"} size="md"></Button>
         </Flex>
       </Modal>
       <Flex justify="flex-end" gap="md" mx={63} mt={40}>
         <Link to="/">
-          <Button text={"ホームへ"} width={"base"}></Button>
+          <Button text={"ホームへ"} size="md"></Button>
         </Link>
-        <Button text={"下書き保存"} width={"base"}></Button>
-        <Button text={"登録"} width={"base"} onClick={open}></Button>
+        <Button text={"下書き保存"} size="md"></Button>
+        <Button text={"登録"} size="md" onClick={open}></Button>
       </Flex>
       <TextInput
         value={input}

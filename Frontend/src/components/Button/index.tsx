@@ -2,16 +2,15 @@ import { Button } from "@mantine/core";
 
 type Props = {
   text: String;
-  width: String;
   onClick?: () => void;
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | (string & {});
 };
 
 const ButtonComponent = (props: Props) => {
-  const { text, width, onClick } = props;
-  const size = width === "base" ? 164 : 400;
+  const { text, onClick, size } = props; 
 
   return (
-    <Button w={size} h="52px" color="dark" onClick={onClick}>
+    <Button size={size} color="dark" onClick={onClick}>
       {text}
     </Button>
   );

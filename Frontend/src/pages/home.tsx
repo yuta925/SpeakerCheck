@@ -9,15 +9,15 @@ function Home() {
       <Text size={80}>ユースピカ</Text>
       <Space h={180}></Space>
       <Link to="/create">
-        <ButtonComponent text={"原稿を作成する"} width={"lg"} />
+        <ButtonComponent text={"原稿を作成する"} size="lg" />
       </Link>
       <Space h="lg" />
       <Link to="/select">
-        <ButtonComponent text={"採点開始"} width={"lg"} />
+        <ButtonComponent text={"採点開始"} size="lg" />
       </Link>
       <Space h="lg" />
       <Link to="/practice">
-        <ButtonComponent text={"練習する"} width={"lg"} />
+        <ButtonComponent text={"練習する"} size="lg" />
       </Link>
     </>
   );

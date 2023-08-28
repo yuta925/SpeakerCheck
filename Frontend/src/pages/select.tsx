@@ -11,10 +11,12 @@ const Select = () => {
       <BackgroundImage src={backGroundImage} radius="xs">
         <div className="pt-8">
           <Link to="/">
-            <Button text={"ホームへ"} width={"base"} ></Button>
+            <Button text={"ホームへ"} size="lg"></Button>
           </Link>
         </div>
-        <div className="mt-20 pb-48"><Panels /></div>
+        <div className="mt-20 pb-48">
+          <Panels />
+        </div>
       </BackgroundImage>
     </div>
   );
