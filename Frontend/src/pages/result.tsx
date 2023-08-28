@@ -28,7 +28,6 @@ const Result = () => {
           <ScoreComponent text={totalScore.toString()}></ScoreComponent>
           <ChartList data={scoreData}></ChartList>
         </>
-        ;{/* })} */}
       </Flex>
       <Space h="102px" />
       <Center>
@@ -46,12 +45,6 @@ const Result = () => {
         />
       </Flex>
       <Space h="lg" />
-      <button type="button" onClick={startRecording} disabled={isAudio}>
-        録音スタート
-      </button>
-      <button type="button" onClick={stopRecording} disabled={!isAudio}>
-        録音ストップ
-      </button>
     </>
   );
 };
